@@ -25,9 +25,17 @@ Task("Publish").Does(() => {
     });
 });
 
-Task("Upload").Does(() => {
-    PS.StartProcess("gcloud beta app deploy app.yaml", "publish");
-});
+Task("Upload")
+    .IsDependentOn("Publish")
+    .Does(() => {
+        PS.StartProcess("gcloud beta app deploy app.yaml", "publish");
+    });
+
+Task("Docker")
+    .IsDependentOn("Publish")
+    .Does(() => {
+        PS.StartProcess("gcloud app deploy --version v1", "publish");
+    });
 
 Task("Publish-NuGet")
     .IsDependentOn("Pack")
