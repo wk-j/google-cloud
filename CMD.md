@@ -14,5 +14,6 @@ gcloud endpoints services deploy openapi.yaml
 ```
 
 ```
-gcloud beta app deploy ../openapi.yaml
+gcloud beta app deploy publish/app.yaml
+gcloud app logs tail -s default
 ```
