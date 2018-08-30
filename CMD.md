@@ -19,3 +19,12 @@ gcloud beta app deploy publish/app.yaml
 y
 gcloud app logs tail -s default
 ```
+
+```bash
+gcloud beta sql connect central-logger-214910:asia-southeast1:central-logger -u postgres
+gcloud beta sql connect --project central-logger-214910 central-logger -u postgres
+
+gcloud beta compute instances list
+
+brew install libpq
+```
